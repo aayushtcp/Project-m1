@@ -1,0 +1,407 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Document</title>
+  </head>
+  <body>
+    {% block content %}
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      h1 {
+        font-weight: 600;
+        color: black;
+      }
+      h1:hover {
+        cursor: pointer;
+        color: #2f358f;
+      }
+      .gridd_container {
+        position: relative;
+        /*text-align: center;
+        font-size: 1.3rem;*/
+
+        grid-gap: 0.2rem;
+        color: black;
+        display: grid;
+        grid-template-columns: 0.9fr 2fr;
+        grid-template-rows: 1.5fr;
+        grid-template-areas: "sidebar main";
+      }
+
+      .mainn {
+        text-align: justify;
+        padding: 20px;
+        background: #fff;
+        grid-area: main;
+      }
+      .sidebar {
+        background: #2980b9;
+        grid-area: sidebar;
+      }
+      /*responsive grid for phone starts*/
+
+      @media only screen and (max-width: 768px) {
+        .gridd_container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 0.1fr 2fr;
+          grid-template-areas:
+            "sidebar"
+            "main";
+        }
+        .mainn {
+          background: #fff;
+          grid-area: main;
+        }
+        .sidebar {
+          padding: 5px;
+          margin: 0px 7px 0px 7px;
+          background: #fff;
+          grid-area: sidebar;
+        }
+      }
+      /*responsive grid for phone ends*/
+      /*responsive grid for PC starts*/
+      @media all and (min-width: 800px) {
+        .mainn {
+          background: #fff;
+          grid-area: main;
+          margin-right: 12rem;
+        }
+        .sidebar {
+          background: #fff;
+          margin-left: 12rem;
+          margin-top: 25px;
+          grid-area: sidebar;
+        }
+      }
+      /*responsive grid for PC ends*/
+
+      /*Image management CSS starts*/
+      .main_img_div {
+        width: 100%;
+      }
+      .main_img {
+        object-fit: cover;
+        height: 400px;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      /*Image management CSS ends*/
+
+      /*After photo CSS starts*/
+      .sub_titles {
+        font-weight: 700;
+        cursor: pointer;
+        color: #2f358f;
+      }
+      .sub_titles:hover {
+        color: red;
+      }
+      /*After photo CSS ends*/
+      .main_img:hover {
+        border-radius: 20px;
+        transition-duration: 0.5s;
+        transform: scale(1.1) rotate(0deg);
+        box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2);
+      }
+      /*Form CSS*/
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+      .form_div{
+        /*min-height: 100vh;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+    }
+    .form_container{
+        position: relative;
+        max-width: 900px;
+        width: 100%;
+        border-radius: 6px;
+        padding: 30px;
+        margin: 0 15px;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    .form_container header{
+        position: relative;
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+    }
+    .form_container header::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 3px;
+        width: 27px;
+        border-radius: 8px;
+        background-color: red;
+    }
+    .form_container form{
+        position: relative;
+        margin-top: 16px;
+        min-height: 490px;
+        background-color: #fff;
+        overflow: hidden;
+    }
+    .form_container form .form{
+        position: absolute;
+        background-color: #fff;
+        transition: 0.3s ease;
+    }
+    .form_container form .form.second{
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+    }
+    form.secActive .form.second{
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+    }
+    form.secActive .form.first{
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(-100%);
+    }
+    .form_container form .title{
+        display: block;
+        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 6px 0;
+        color: #333;
+    }
+    .form_container form .fields{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    form .fields .input-field{
+        display: flex;
+        width: calc(100% / 3 - 15px);
+        flex-direction: column;
+        margin: 4px 0;
+    }
+    .input-field label{
+        font-size: 12px;
+        font-weight: 500;
+        color: #2e2e2e;
+    }
+    .input-field input, select{
+        outline: none;
+        font-size: 14px;
+        font-weight: 400;
+        color: #333;
+        border-radius: 5px;
+        border: 1px solid #aaa;
+        padding: 0 15px;
+        height: 42px;
+        margin: 8px 0;
+    }
+    .input-field input :focus,
+    .input-field select:focus{
+        box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+    }
+    .input-field select,
+    .input-field input[type="date"]{
+        color: #707070;
+    }
+    .input-field input[type="date"]:valid{
+        color: #333;
+    }
+    .form_container form button, .backBtn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        max-width: 200px;
+        width: 100%;
+        border: none;
+        outline: none;
+        color: #fff;
+        border-radius: 5px;
+        margin: 25px 0;
+        background-color: red;
+        transition: all 0.3s linear;
+        cursor: pointer;
+    }
+    .form_container form .btnText{
+        font-size: 14px;
+        font-weight: 400;
+    }
+    form button:hover{
+        background-color: red;
+    }
+    form button i,
+    form .backBtn i{
+        margin: 0 6px;
+    }
+    form .backBtn i{
+        transform: rotate(180deg);
+    }
+    form .buttons{
+        display: flex;
+        align-items: center;
+    }
+    form .buttons button , .backBtn{
+        margin-right: 14px;
+    }
+    
+    @media (max-width: 750px) {
+        .form_container form{
+            overflow-y: scroll;
+        }
+        .form_container form::-webkit-scrollbar{
+           display: none;
+        }
+        form .fields .input-field{
+            width: calc(100% / 2 - 15px);
+        }
+    }
+    
+    @media (max-width: 550px) {
+        form .fields .input-field{
+            width: 100%;
+        }
+    }
+    </style>
+    <div class="gridd_container">
+      <div class="sidebar">
+        <a href="/gallary" class="sidebar_a"
+          >About HCC Why HCCSS Faculty Office Hours Organizational Structure
+          Facts And Figures Department Of HCCSS.</a
+        >
+      </div>
+      <main class="mainn">
+        <h1>+2</h1>
+        <div class="main_img_div">
+          <img
+            src="{% static 'plus2_hm_cook1.jpg' %}"
+            alt=""
+            class="main_img"
+          />
+        </div>
+
+        <p class="long_paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi
+          veritatis hic nesciunt eligendi suscipit molestiae porro! Quasi
+          quibusdam, assumenda cum tempora rem dolore. Laborum facilis saepe
+          laboriosam quod quidem fuga quo explicabo ut vel maiores eaque
+          corrupti optio, asperiores repudiandae tenetur quas, natus ratione
+          eveniet neque recusandae. Voluptate distinctio totam ut dolorem amet
+          consequuntur optio quo ex, laborum fugit, unde aliquid. Veniam aperiam
+          tempore molestiae, qui magni necessitatibus deleniti molestias ipsum
+          deserunt quae ipsa reiciendis tempora veritatis unde incidunt.
+          Perspiciatis laboriosam rem nobis sed minima dolor sapiente laudantium
+          quod eum ad amet, ab beatae numquam fuga earum temporibus unde ex
+          fugiat sint eveniet eos, distinctio sunt nesciunt? Nam at eveniet nemo
+          expedita sint voluptate doloremque illum consectetur deleniti, aperiam
+          voluptatibus nulla maiores delectus perspiciatis? Placeat excepturi
+          vero, voluptate numquam fugit necessitatibus molestiae quod
+          consectetur accusantium consequatur optio perferendis, culpa
+          repudiandae inventore dolorum enim eligendi tenetur saepe animi nisi?
+          Explicabo nisi minus placeat veritatis, porro iste. Accusamus minus
+          totam odit quas quasi rem labore assumenda omnis nulla numquam, harum
+          autem ipsum, perferendis necessitatibus voluptate consequatur sint
+          itaque consectetur facilis, molestias sequi? Ipsa sunt expedita
+          molestiae porro nisi ratione, ipsum aliquam harum amet possimus
+          quisquam dolore, rerum id voluptatum ab magni.
+        </p>
+        <!-- FORM STARTS -->
+
+        <div class="form_div">
+            <div class="form_container">
+                <header>Admission Form</header>
+        
+                <form action="#">
+                    <div class="form first">
+                        <div class="details personal">
+                            <span class="title">Personal Details</span>
+        
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Full Name</label>
+                                    <input type="text" placeholder="Enter your name" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Date of Birth</label>
+                                    <input type="date" placeholder="Enter birth date" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Email</label>
+                                    <input type="text" placeholder="Enter your email" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Mobile Number</label>
+                                    <input type="number" placeholder="Enter mobile number" required>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Class</label>
+                                    <select required>
+                                        <option disabled selected>Select Addmission Grade</option>
+                                        <option>+2</option>
+                                        <option>School</option>
+                                        <option>BCA</option>
+                                        <option>Bsc.CSIT</option>/
+                                    </select>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label>Address</label>
+                                    <input type="text" placeholder="Hetauda - 5, Piple" required>
+                                </div>
+                            </div>
+                        </div>
+        
+                            <button class="nextBtn">
+                                <span class="btnText">Next</span>
+                                <i class="uil uil-navigator"></i>
+                            </button>
+                        </div> 
+                    </div>
+                </form>
+            </div>
+        </div>
+      </main>
+    </div>
+    <script>
+               const form = document.querySelector("form"),
+              nextBtn = form.querySelector(".nextBtn"),
+              backBtn = form.querySelector(".backBtn"),
+              allInput = form.querySelectorAll(".first input");
+
+
+      nextBtn.addEventListener("click", ()=> {
+          allInput.forEach(input => {
+              if(input.value != ""){
+                  form.classList.add('secActive');
+              }else{
+                  form.classList.remove('secActive');
+              }
+          })
+      })
+
+      backBtn.addEventListener("click", () => form.classList.remove('secActive'));
+    </script>
+    {% endblock %}
+  </body>
+</html>

@@ -1,545 +1,526 @@
+{% extends 'base.html' %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>HCC</title>
-
-    <!------------ GOOGLE FONTS ------------>
-    <link
-      href="https://fonts.googleapis.com/css?family=Anton|Cabin|Lato|Fjalla+One|Montserrat|Roboto&display=swap"
-      rel="stylesheet"
-    />
-
-    <!------------ FONT AWESOME ------------>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-      rel="stylesheet"
-    />
-
-    <!------------ CUSTOM STYLE SHEET ------------>
-    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
+    {% block content %}
+    <!-- <button type="button" class="btn btn-info">Info</button> -->
     <style>
-      * {
+      .cards {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-gap: 40px;
+        margin-bottom: 1rem;
+      }
+      @media all and (max-width: 800px) {
+        .cards {
+          overflow-x: hidden;
+          padding: 10px;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .slider_img {
+          border-radius: 20px;
+          height: 27rem;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        .index_lead{
+          font-size: 22px !important;
+          padding: 0px 25px 0px 25px;
+        }
+        
+      }
+      @media all and (min-width: 800px) {
+        .slider_div {
+          margin: 0px 20px 0px 20px;
+        }
+        .slider_img { 
+          border-radius: 20px;
+          height: 38rem;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        .index_lead{
+          font-size: 30px;
+          padding: 0px 11rem 0px 11rem;
+        }
+        .tes_wrapper{
+          margin-top: 3rem;
+          margin-bottom: 3rem;
+        }
+        .box{
+          border: 2px solid #a6ce3b;
+        }
+        .center_text h2{
+          font-weight: 700;
+        }
+      }
+
+      .card {
+        margin-top: 2rem;
+        background-color: #1c1b29;
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.18);
+      }
+
+      .container_card {
+        /* position: relative; */
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      }
+
+      .card_img {
+        width: 100%;
+        display: block;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .container_card:after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 20px 20px 0 0;
+        opacity: 0.7;
+      }
+
+      .details {
+        padding: 20px 10px;
+      }
+
+      .details > h3 {
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 18px;
+        margin: 10px 0 15px 0;
+      }
+
+      .details > p {
+        color: #a0a0a0;
+        font-size: 15px;
+        line-height: 30px;
+        font-weight: 400;
+      }
+      .main_img {
+        height: 30rem;
+        width: 100%;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
       }
-      
-      body {
-        width: 100%;
-        height: 100vh;
-        background-color: #e6e3e4;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+      .single-content {
+        text-align: center;
+        padding: 115px 0;
       }
+      .center_text {
+        padding: 5rem 0px 5rem 0px;
+      }
+      .card_title_h2 {
+        font-family: "poppins", sans-serif;
+        color: #2f358f;
+      }
+      .card_title_h2_span {
+        color: #2f358f;
+        border-bottom: 5px solid #a6ce3b;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .index_lead {
 
-      nav {
-        width: 100%;
-        height: 70px;
-        background-color: #1C82AD;
+        font-family: "poppins", sans-serif;
+        margin-top: 1rem;
+        color: #000 !important;
+        font-weight: 700 !important;
+      }
+      /*Intro ko*/
+      .wrapper {
+        position: relative;
+        width: 80vw;
+        /*transform: translate(-50%, -50%);*/
+        overflow: hidden;
+      /*  top: 50%;*/
+        left: 10%;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
       }
-
-      .logo {
-        font-family: "Poppins", sans-serif;
-        font-weight: bolder;
-        text-transform: uppercase;
-        text-decoration: none;
-        margin-left: 20px;
-        font-size: 35px;
-        color: #fff;
-      }
-
-      nav ul {
-        background-color: #1C82AD;
-      }
-
-      nav ul li {
-        font-family: "Poppins", sans-serif;
-        display: inline-block;
-        text-transform: uppercase;
-        font-weight: bolder;
+      .number_container {
+        text-align: center;
+        width: 28vmin;
+        height: 28vmin;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 1em 0;
         position: relative;
         font-size: 16px;
-        padding: 20px;
+        border-radius: 0.5em;
+        background-color: #21242b;
+        border-bottom: 10px solid #18f98f;
       }
-
-      nav ul li a {
-        text-decoration: none;
-        color: #fff;
-      }
-
-      nav ul li ul {
-        position: absolute;
-        visibility: hidden;
-        opacity: 0;
+      i {
+        color: #18f98f;
+        font-size: 2.5em;
         text-align: center;
-        width: 100%;
-        z-index: 1;
-        transition: 0.4s linear;
-        border-top: 3px solid #fff;
       }
-
-      nav > ul > li > ul {
-        top: 100%;
-        left: 0;
-      }
-
-      nav > ul > li > ul > li ul {
-        top: 30%;
-        left: 100%;
-        border-left: 3px solid #fff;
-      }
-
-      .drop-icon {
-        transform: rotate(-90deg);
-      }
-
-      nav ul li:hover > ul {
-        visibility: visible;
-        opacity: 1;
-      }
-
-      input {
-        display: none;
-      }
-
-      label {
-        width: 130px;
-        height: 40px;
-        color: #fff;
-        font-size: 25px;
-        line-height: 38px;
-        text-align: center;
-        font-weight: bolder;
-        margin-right: 20px;
-        border: 1px solid #fff;
-        text-transform: uppercase;
-        display: none;
-      }
-
-      label span {
-        font-family: "Poppins", sans-serif;
-      }
-
-      @media (max-width: 900px) {
-        label {
-          display: block;
-        }
-
-        nav ul {
-          position: absolute;
-          top: 55px;
-          left: -110%;
-          width: 100%;
-          transition: 0.8s ease-in-out;
-        }
-
-        nav ul li {
-          display: block;
-        }
-
-        input:checked ~ #menu {
-          left: 0;
-        }
-
-        .drop-icon {
-          transform: rotate(0deg);
-        }
-
-        nav ul li ul {
-          position: relative;
-          left: 0 !important;
-          visibility: visible;
-          opacity: 1;
-          border-top: none;
-          text-align-last: left;
-          border-left: 5px solid #f12020 !important;
-          display: none;
-        }
-
-        .show {
-          display: block;
-        }
-      }
-      /*footer css start*/
-      footer {
-        margin-top: 20px;
-        font-family: "Poppins", sans-serif;
-        position: fixed;
-        bottom: 0px;
-        width: 100%;
-        background: #1C82AD;
-      }
-      .main-content {
-        display: flex;
-      }
-      .main-content .box {
-        flex-basis: 50%;
-        padding: 10px 20px;
-      }
-      .box h2 {
-        font-size: 1.125rem;
+      span.num {
+        color: #ffffff;
+        display: grid;
+        place-items: center;
         font-weight: 600;
-        text-transform: uppercase;
+        font-size: 3em;
       }
-      .box .content {
-        margin: 20px 0 0 0;
-        position: relative;
-      }
-      .box .content:before {
-        position: absolute;
-        content: "";
-        top: -10px;
-        height: 2px;
-        width: 100%;
-        background: #1a1a1a;
-      }
-      .box .content:after {
-        position: absolute;
-        content: "";
-        height: 2px;
-        width: 15%;
-        background: #f12020;
-        top: -10px;
-      }
-      .left .content p {
-        text-align: justify;
-      }
-      .left .content .social {
-        margin: 20px 0 0 0;
-      }
-      .left .content .social a {
-        padding: 0 2px;
-      }
-      .left .content .social a span {
-        height: 40px;
-        width: 40px;
-        background: #1a1a1a;
-        line-height: 40px;
+      span.text {
+        color: #e0e0e0;
+        font-size: 1em;
         text-align: center;
-        font-size: 18px;
-        border-radius: 5px;
-        transition: 0.3s;
+        pad: 0.7em 0;
+        font-weight: 400;
+        line-height: 0;
       }
-      .left .content .social a span:hover {
-        background: #f12020;
-      }
-      .center .content .fas {
-        font-size: 1.4375rem;
-        background: #1a1a1a;
-        height: 45px;
-        width: 45px;
-        line-height: 45px;
-        text-align: center;
-        border-radius: 50%;
-        transition: 0.3s;
-        cursor: pointer;
-      }
-      .center .content .fas:hover {
-        background: #f12020;
-      }
-      .text,
-      .fas {
-        color: white;
-      }
-      .center .content .text {
-        font-size: 1.0625rem;
-        font-weight: 500;
-        padding-left: 10px;
-      }
-      .center .content .phone {
-        margin: 15px 0;
-      }
-      .right form .text {
-        font-size: 1.0625rem;
-        margin-bottom: 2px;
-        color: #fff;
-      }
-      .right form .msg {
-        margin-top: 10px;
-      }
-      .right form input,
-      .right form textarea {
-        width: 100%;
-        font-size: 1.0625rem;
-        background: #fff;
-        padding-left: 10px;
-        border: 1px solid #222222;
-      }
-      .right form input:focus,
-      .right form textarea:focus {
-        outline-color: #3498db;
-      }
-      .right form input {
-        height: 35px;
-      }
-      .right form .btn {
-        margin-top: 10px;
-      }
-      .right form .btn button {
-        height: 40px;
-        width: 100%;
-        border: none;
-        outline: none;
-        background: #f12020;
-        font-size: 1.0625rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-      .right form .btn button:hover {
-        background: #000;
-      }
-      .bottom center {
-        padding: 5px;
-        font-size: 0.9375rem;
-        background: #151515;
-      }
-      .bottom center span {
-        color: #656565;
-      }
-      .bottom center a {
-        color: #ed7a3c;
-        text-decoration: none;
-      }
-      .bottom center a:hover {
-        text-decoration: underline;
-      }
-      @media screen and (max-width: 900px) {
-        footer {
-          position: relative;
-          bottom: 0px;
+      @media screen and (max-width: 1024px) {
+        .wrapper {
+          width: 85vw;
         }
-        .main-content {
+        .number_container {
+          height: 26vmin;
+          width: 26vmin;
+          font-size: 12px;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .wrapper {
+          width: 80vw;
           flex-wrap: wrap;
-          flex-direction: column;
+          gap: 30px;
         }
-        .main-content .box {
-          margin: 5px 0;
-        }
-        .footer_para,
-        .footer_h2 {
-          color: #e4e4e4;
-        }
-        .logo{
-          padding: 10px;
-          font-size: 15px;
-          border: 2px solid #fff;
+        .number_container {
+          width: calc(50% - 40px);
+          height: 30vmin;
+          font-size: 14px;
         }
       }
-      footer p,
-      h2,.text {
+      @media screen and (max-width: 480px) {
+        .wrapper {
+          gap: 15px;
+        }
+        .number_container {
+          width: 100%;
+          height: 25vmin;
+          font-size: 8px;
+        }
+      }
+      /*Intro ko sakkyo*/
+      /*Testimonial starts*/
+      ::selection{
+        background: rgba(23,162,184,0.3);
+      }
+      .tes_wrapper{
+        /*grid-gap: 5rem;*/
+        display: grid;
+        height: 100%;
+        place-items: center;
+        /*background: #17a2b8;*/
+        max-width: 3000px;
+        /*margin: auto;*/
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .tes_wrapper .box{
+        background: #fff;
+        width: calc(33% - 10px);
+        padding: 25px;
+        border-radius: 3px;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+      }
+      .tes_wrapper .box i.quote{
+        font-size: 20px;
+        color: #17a2b8;
+      }
+      .tes_wrapper .box .content{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 10px;
+      }
+      .box .info .name{
+        font-weight: 600;
+        font-size: 17px;
+      }
+      .box .info .job{
+        font-size: 16px;
+        font-weight: 500;
+        color: #17a2b8;
+      }
+      .box .info .stars{
+        margin-top: 2px;
+      }
+      .box .info .stars i{
+        color: #17a2b8;
+      }
+      .box .content .image{
+        height: 75px;
+        width: 75px;
+        padding: 3px;
+        background: #17a2b8;
+        border-radius: 50%;
+      }
+      .content .image img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #fff;
+      }
+      .box:hover .content .image img{
+        border-color: #fff;
+      }
+      
+      @media (max-width: 1045px) {
+        .tes_wrapper .box{
+          width: calc(50% - 10px);
+          margin: 10px 0;
+        }
+      }
+      @media (max-width: 702px) {
+        .tes_wrapper .box{
+          width: 100%;
+        }
+      }
+      .text_span{
         color: #fff;
-      }
-      .fa-twitter,
-      .fa-facebook-f,
-      .fa-youtube,
-      .fa-instagram {
-        color: #e4e4e4;
-      }
-      .text{
         font-weight: bold;
+        font-size: 36px;
       }
-      /*footer css end*/
+      /*carousel css start*/
+      .c-item{
+        height: 500px;
+    }
+    .c-img{
+        width: 100%;
+        height: 100%;
+        filter: brightness(0.6);
+        object-fit: cover;
+    }
+      /*carousel css ends*/
     </style>
-    <nav>
-      <a href="#" class="logo">Hetauda City College</a>
-
-      <input type="checkbox" id="box" />
-      <label for="box">
-        <span>MENU <i class="fas fa-bars"></i></span>
-      </label>
-
-      <ul id="menu">
-        <li><a href="#">Home</a></li>
-        <li>
-          <a href="#"
-            >About US &nbsp;&nbsp;<span><i class="fa fa-angle-down"></i></span>
-          </a>
-          <ul>
-            <li><a href="#">About HCC</a></li>
-            <li><a href="#">Why HCC</a></li>
-            <li><a href="#">Location</a></li>
-            <li><a href="#">Facilities & Staff</a></li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="#"
-            >Programs &nbsp;&nbsp;<span><i class="fa fa-angle-down"></i></span>
-          </a>
-          <ul>
-            <li><a href="#">BCA</a></li>
-            <li><a href="#">+ 2</a></li>
-            <li><a href="#">School</a></li>
-            <li><a href="#">Bsc.CSIT</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Extra Servives</a></li>
-        <li><a href="#">Contact us</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Facilities</a></li>
-      </ul>
-    </nav>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Est illo a
-      eveniet consequatur minima quam modi repellendus nesciunt nemo
-      exercitationem harum impedit, voluptate explicabo nulla saepe, dolorem nam
-      aperiam fugit inventore iusto adipisci sed animi ratione ex. Molestias
-      soluta minima, magni dolore veritatis quas magnam harum, impedit ab nisi,
-      eveniet dolorum dicta enim. Deleniti sunt tempora sed cupiditate, suscipit
-      nobis earum impedit veniam culpa cum vel incidunt provident nesciunt
-      doloribus amet maiores voluptatum. Rem vel odio provident odit. Autem
-      omnis rerum eaque quod nobis corrupti iusto fugiat quaerat, debitis
-      deserunt cumque perspiciatis eos beatae enim in facilis laboriosam culpa
-      ab ipsum excepturi laborum quidem dolorum vel error? Excepturi voluptatem
-      mollitia consequatur praesentium, recusandae quia possimus omnis dolor
-      facere tenetur veniam inventore quos autem nulla, ab ut dolorum nostrum ea
-      animi libero aspernatur in alias dignissimos. Vel quisquam similique
-      delectus asperiores, corporis deleniti et sapiente, veniam repellat
-      necessitatibus reprehenderit sed tempore nihil sint ipsam omnis facilis
-      aut molestias porro totam explicabo dolorum. Temporibus facere, iure illo
-      nobis ipsa reiciendis amet et, corrupti voluptatibus facilis sunt sed
-      provident numquam asperiores aut laudantium magni dolores, eveniet
-      deserunt exercitationem mollitia nisi consequatur sit. Facere numquam
-      consectetur natus explicabo, cumque sequi delectus quis tempore quae
-      nesciunt ut! Commodi debitis iste adipisci dolor eaque temporibus magni
-      iure praesentium, ex sapiente itaque ipsa, harum libero. Natus quidem sed
-      nisi numquam ut id architecto repellat aperiam tempora, aliquid et! Cumque
-      hic eaque illum maxime nobis laudantium eum facilis voluptate dicta illo
-      veniam, suscipit voluptas iusto minus? Veniam quam, placeat perspiciatis
-      voluptate, deserunt ipsa dolore distinctio nesciunt delectus sint minima?
-      Quae doloribus totam pariatur deserunt debitis labore sunt deleniti, ullam
-      ex voluptatum sit harum, magnam dolor voluptatibus beatae. Ab sunt porro
-      suscipit nihil impedit sapiente tempore, tenetur commodi architecto
-      dignissimos animi harum possimus unde in aperiam mollitia? Quis,
-      eveniet?Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-      perspiciatis cupiditate consequuntur praesentium voluptatem quae,
-      necessitatibus est. Explicabo, saepe autem modi officia expedita libero
-      fugiat veniam, voluptates ea inventore accusamus necessitatibus iste
-      dolorem reprehenderit eligendi quia consequuntur rerum optio ipsum?
-      Nesciunt velit non ipsa culpa voluptates consectetur deleniti? Dolores
-      possimus minus odit. Excepturi aliquam similique minima iste fugiat quo,
-      expedita sequi quae omnis. Debitis molestiae ipsa nostrum tempora animi
-      repellat, deleniti quibusdam assumenda dolor quisquam ut voluptatem
-      recusandae illo odio culpa exercitationem aperiam tempore quis sequi
-      voluptate sunt ipsum. Adipisci ipsam dignissimos vel cumque vitae
-      consequatur itaque pariatur suscipit amet rerum totam dolor, maxime
-      debitis labore voluptate, accusantium, quaerat assumenda ad error
-      reprehenderit veritatis veniam. Nisi distinctio voluptates provident iste
-      atque, eos praesentium veniam molestiae, dicta est unde aperiam facilis,
-      incidunt doloremque saepe delectus? Aperiam praesentium, dolorem ut minus
-      vitae temporibus fugit ratione quisquam dolores atque, corrupti, cum
-      inventore suscipit eius possimus nostrum cupiditate soluta! Aliquid
-      excepturi illo suscipit maxime rerum magnam sunt aliquam. Necessitatibus
-      nulla aspernatur aliquid odit beatae atque, modi facilis assumenda
-      repudiandae nostrum nobis ullam consequatur et ducimus obcaecati neque
-      quos maiores itaque distinctio amet enim rem. Quis nobis consequatur
-      accusantium ea labore vero quaerat molestias minus laboriosam dignissimos
-      eos deleniti quam sequi ex porro animi, eaque mollitia, odit rerum sunt?
-      Quis corrupti non tenetur, hic reprehenderit inventore enim ab autem illum
-      earum officia nam sunt alias. Commodi quisquam recusandae nostrum cum amet
-      quidem voluptatum alias in laborum rem quam iure aut non sed excepturi
-      cupiditate deleniti, quibusdam similique iste. Quae voluptatibus, rem non
-      ut porro tempore omnis eveniet modi provident officiis illo veniam
-      reprehenderit quaerat distinctio. Voluptates, reiciendis? Harum magni
-      nemo, recusandae non consequatur repellendus vitae magnam debitis, numquam
-      vero repellat ducimus cumque velit, cum iusto similique. Minima aspernatur
-      incidunt maxime, minus fugit praesentium voluptates eius.
-    </p>
-
-    <!-- FOOTER STARTS -->
-    <footer>
-      <div class="main-content">
-        <div class="left box">
-          <h2 class="footer_h2">About us</h2>
-          <div class="content">
-            <p class="footer_para">
-              Hetauda City College is first IT college of Makawanpur. Our main will is to provide better education for all our students with both academic knowledge as well as practical with many extra technologies.
-            </p>
-            <div class="social">
-              <a href="https://facebook.com/aayushtcp" target="_blank"
-                ><span class="fab fa-facebook-f"></span
-              ></a>
-              <a target="_blank" href="https://twitter.com/aayushTC"><span class="fab fa-twitter"></span></a>
-              <a href="#" target="_blank"
-                ><span class="fab fa-instagram"></span
-              ></a>
-              <a href="#" target="_blank"
-                ><span class="fab fa-youtube"></span
-              ></a>
-            </div>
+    <div id="hero-carousel" class="carousel slide ownslide"  data-bs-ride="carousel">
+      <div class="carousel-indicators">
+          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active c-item">
+          <img src="{% static 'college1.jpg' %}" class="d-block w-100n c-img" alt="...">
+          <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+            <p class="mt-5 fs-3 text-uppercase">Our building is amazing</p>
+            <h1 class="display-1 fw-bolder text-capatalize">Our Building</h1>
           </div>
         </div>
-
-        <div class="center box">
-          <h2>Address</h2>
-          <div class="content">
-            <div class="place">
-              <span class="fas fa-map-marker-alt"></span>
-              <span class="text">Hetauda, Makawanpur</span>
-            </div>
-            <div class="phone">
-              <span class="fas fa-phone-alt"></span>
-              <span class="text">+977-0123456789</span>
-            </div>
-            <div class="email">
-              <span class="fas fa-envelope"></span>
-              <span class="text">khatradeveloper@example.com</span>
-            </div>
+        <div class="carousel-item c-item">
+          <img src="{% static 'college2.jpg' %}" class="d-block w-100n c-img" alt="...">
+          <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+            <p class="mt-5 fs-3 text-uppercase">Real life Technology tour</p>
+            <h1 class="display-1 fw-bolder text-capatalize">Disaster Recovery Center</h1>
           </div>
         </div>
-
-        <div class="right box">
-          <h2>Contact us</h2>
-          <div class="content">
-            <form action="#">
-              <!-- <div class="email">
-                <div class="text">Email *</div>
-                <input type="email" required />
-              </div> -->
-              <div class="msg">
-                <div class="text">Message *</div>
-                <textarea rows="2" cols="25" required></textarea>
-              </div>
-              <div class="btn">
-                <button type="submit">Send</button>
-              </div>
-            </form>
+        <div class="carousel-item c-item">
+          <img src="{% static 'college3.jpg' %}" class="d-block w-100n c-img" alt="...">
+          <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+            <p class="mt-5 fs-3 text-uppercase">Code like a professional</p>
+            <h1 class="display-1 fw-bolder text-capatalize">Extra Programming</h1>
           </div>
         </div>
       </div>
-      <div class="bottom">
-        <center>
-          <span class="credit"
-            >Created By
-            <a href="https://www.codingnepalweb.com">Hetauda city college</a> |
-          </span>
-          <span class="far fa-copyright"></span
-          ><span> 2023 All rights reserved.</span>
-        </center>
+      <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <center class="center_text">
+      <h2 class="card_title_h2">
+        LIVE THE
+        <span class="card_title_h2_span"> ACEPERIENCE </span>
+      </h2>
+      <p class="index_lead">
+        Established in 2070 HCC has evolved into one of the best providers of
+        Technology education in the country.</span>
+      </p>
+    </center>
+    <div class="wrapper">
+      <div class="number_container">
+        <!-- <i class="fas fa-utensils"></i> -->
+        <span class="text_span">9+</span>
+        <span class="text">Years</span>
       </div>
-    </footer>
-    <!-- FOOTER ENDS -->
 
+      <div class="number_container">
+        <!-- <i class="fas fa-smile-beam"></i> -->
+        <span class="text_span">125+</span>
+        <span class="text">Faculty Menbers</span>
+      </div>
+
+      <div class="number_container">
+        <!-- <i class="fas fa-list"></i> -->
+        <span class="text_span">300+</span>
+        <span class="text">Alumni</span>
+      </div>
+
+      <div class="number_container">
+        <!-- <i class="fas fa-star"></i> -->
+        <span class="text_span">195+</span>
+        <span class="text">Stars</span>
+      </div>
+    </div>
+    <!-- <div class="content">
+      <div class="container">
+          <div class="single-content">
+              <h1>Website Content</h1>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet repudiandae sunt consectetur exercitationem, error facilis adipisci, architecto excepturi illum sequi eum dignissimos ab rerum quis inventore quaerat tempore quas laboriosam.</p>
+          </div>
+      </div>
+  </div> -->
+    <!-- CARD START -->
+    <div class="cards">
+      <div class="card card2">
+        <div class="container_card">
+          <img
+            src="{% static 'college-hackathon.jpg' %}"
+            alt=""
+            class="card_img"
+          />
+        </div>
+        <div class="details">
+          <!-- <h3>Australia</h3> -->
+          <a href="#" class="text-white" style="text-decoration: none">
+            <h3>+2 Program</h3>
+          </a>
+          <p>
+            There are four different +2 courses available in HCC which helps students to choose there interest.
+            (Science, Commerce, Hotel Management and Law)
+          </p>
+        </div>
+      </div>
+      <div class="card card3">
+        <div class="container_card">
+          <img src="{% static 'college2.jpg' %}" alt="" class="card_img" />
+        </div>
+        <div class="details">
+          <a href="#" class="text-white" style="text-decoration: none">
+            <h3>Our Will</h3>
+          </a>
+          <p>
+            Our main aim is to provide a better hands-on experience education for all students and make them a better person is every related field.
+          </p>
+        </div>
+      </div>
+      <div class="card card4">
+        <div class="container_card">
+          <img src="{% static 'college1.jpg' %}" alt="" class="card_img" />
+        </div>
+        <div class="details">
+          <a href="#" class="text-white" style="text-decoration: none">
+            <h3>Bachelors Program</h3>
+          </a>
+          <p>
+            HCC's undergraduate programs aim to develop skilled programmers and Testers by giving students a solid intellectual grounding and hands-on experience.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial starts -->
+    <div class="tes_wrapper">
+      <div class="box">
+        <i class="fas fa-quote-left quote"></i>
+        <p>Hami nai khatra ho hamro nai college khatra ho hamro college jasto ramro education dine college nepal ma katai ni xaina teai bhayera hamro college ma nai paisa kharcha garnus hai ta !</p>
+        <div class="content">
+          <div class="info">
+            <div class="name">Naresh Nath Yogi</div>
+            <div class="job">Bachelors Co-ordinator</div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="image">
+            <img src="{% static 'lorem_co-ordinator.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="box">
+        <i class="fas fa-quote-left quote"></i>
+        <p>Hami nai khatra ho hamro nai college khatra ho hamro college jasto ramro education dine college nepal ma katai ni xaina teai bhayera hamro college ma nai paisa kharcha garnus hai ta !</p>
+        <div class="content">
+          <div class="info">
+            <div class="name">Dinesh Phuyal</div>
+            <div class="job">+2 Co-ordinator</div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="image">
+            <img src="{% static '+2_co-ordinator.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Testimonial ends -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6846ee7114.js" crossorigin="anonymous"></script>
     <script>
-      let dropdown = document.querySelectorAll("nav ul li a");
-
-      dropdown.forEach((element) => {
-        element.addEventListener("click", (event) => {
-          event.stopPropagation();
-          element.nextElementSibling.classList.toggle("show");
-        });
+      let valueDisplays = document.querySelectorAll(".num");
+      let interval = 4000;
+      
+      valueDisplays.forEach((valueDisplay) => {
+        let startValue = 0;
+        let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+        let duration = Math.floor(interval / endValue);
+        let counter = setInterval(function () {
+          startValue += 1;
+          valueDisplay.textContent = startValue;
+          if (startValue == endValue) {
+            clearInterval(counter);
+          }
+        }, duration);
       });
     </script>
+
+    {% endblock %}
   </body>
 </html>

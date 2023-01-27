@@ -1,0 +1,192 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% block content %}
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      h1{
+        font-weight:600;
+        color: black;
+      }
+      h1:hover{
+        cursor: pointer;
+        color: #2f358f;
+      }
+      .gridd_container {
+        position: relative;
+        /*text-align: center;
+        font-size: 1.3rem;*/
+
+        grid-gap: 0.2rem;
+        color: black;
+        display: grid;
+        grid-template-columns: 0.9fr 2fr;
+        grid-template-rows: 1.5fr;
+        grid-template-areas: "sidebar main";
+      }
+
+      .mainn {
+        text-align: justify;
+        padding: 20px;
+        background: #fff;
+        grid-area: main;
+      }
+      .sidebar {
+        background: #2980b9;
+        grid-area: sidebar;
+      }
+      /*responsive grid for phone starts*/
+
+      @media only screen and (max-width: 768px) {
+        .gridd_container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 0.3fr 2fr;
+          grid-template-areas:
+            "sidebar"
+            "main";
+        }
+        .mainn {
+          background: #fff;
+          grid-area: main;
+        }
+        .sidebar {
+          padding: 5px;
+          margin: 0px 7px 0px 7px;
+          background: #fff;
+          grid-area: sidebar;
+        }
+      }
+      /*responsive grid for phone ends*/
+      /*responsive grid for PC starts*/
+      @media all and (min-width: 800px) {
+        .mainn {
+          background: #fff;
+          grid-area: main;
+          margin-right: 12rem;
+        }
+        .sidebar {
+          background: #fff;
+          margin-left: 12rem;
+          margin-top: 25px;
+          grid-area: sidebar;
+        }
+      }
+      /*responsive grid for PC ends*/
+
+      /*Image management CSS starts*/
+      .main_img_div {
+        width: 100%;
+      }
+      .main_img {
+        object-fit: cover;
+        height: 400px;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      /*Image management CSS ends*/
+
+      /*After photo CSS starts*/
+      .sub_titles{
+        font-weight: 700;
+        cursor: pointer;
+        color: #2f358f;
+      }
+      .sub_titles:hover{
+        color: red;
+      }
+      /*After photo CSS ends*/
+      .main_img:hover{
+        border-radius: 20px;
+        transition-duration: .5s;
+        transform: scale(1.1) rotate(0deg);
+        box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2);
+        
+      }
+    </style>
+    <div class="gridd_container">
+      <div class="sidebar">
+        <a href="/gallary" class="sidebar_a"
+          >About HCC Why HCCSS Faculty Office Hours Organizational Structure
+          Facts And Figures Department Of HCCSS.</a
+        >
+      </div>
+      <main class="mainn">
+        <h1>Why HCC</h1>
+        <div class="main_img_div">
+          <img src="{% static 'college1.jpg' %}" alt="" class="main_img" />
+        </div>
+
+        <p class="long_paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi
+          veritatis hic nesciunt eligendi suscipit molestiae porro! Quasi
+          quibusdam, assumenda cum tempora rem dolore. Laborum facilis saepe
+          laboriosam quod quidem fuga quo explicabo ut vel maiores eaque
+          corrupti optio, asperiores repudiandae tenetur quas, natus ratione
+          eveniet neque recusandae. Voluptate distinctio totam ut dolorem amet
+          consequuntur optio quo ex, laborum fugit, unde aliquid. Veniam aperiam
+          tempore molestiae, qui magni necessitatibus deleniti molestias ipsum
+          deserunt quae ipsa reiciendis tempora veritatis unde incidunt.
+          Perspiciatis laboriosam rem nobis sed minima dolor sapiente laudantium
+          quod eum ad amet, ab beatae numquam fuga earum temporibus unde ex
+          fugiat sint eveniet eos, distinctio sunt nesciunt? Nam at eveniet nemo
+          expedita sint voluptate doloremque illum consectetur deleniti, aperiam
+          voluptatibus nulla maiores delectus perspiciatis? Placeat excepturi
+          vero, voluptate numquam fugit necessitatibus molestiae quod
+          consectetur accusantium consequatur optio perferendis, culpa
+          repudiandae inventore dolorum enim eligendi tenetur saepe animi nisi?
+          Explicabo nisi minus placeat veritatis, porro iste. Accusamus minus
+          totam odit quas quasi rem labore assumenda omnis nulla numquam, harum
+          autem ipsum, perferendis necessitatibus voluptate consequatur sint
+          itaque consectetur facilis, molestias sequi? Ipsa sunt expedita
+          molestiae porro nisi ratione, ipsum aliquam harum amet possimus
+          quisquam dolore, rerum id voluptatum ab magni.
+        </p>
+
+        <h4 class="sub_titles">Mission</h4>
+        <p class="short_paragraph">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At veniam
+          excepturi quaerat repudiandae nulla nisi deserunt aliquam magni id
+          cumque, commodi facere illo dolorem. Voluptate reprehenderit numquam
+          natus! Nobis, aliquam.
+        </p>
+
+        <h4 class="sub_titles">Vision</h4>
+        <p class="short_paragraph">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+          voluptas alias id ea. Et consequatur saepe placeat ut, omnis,
+          laboriosam blanditiis, eum ipsam tempora impedit officia eius odit
+          sint dolores.
+        </p>
+
+        <h4 class="sub_titles">Philosophy</h4>
+        <p class="short_paragraph">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum
+          ipsa adipisci quia repellendus provident dicta autem, assumenda cum
+          perspiciatis, ratione suscipit porro officiis eveniet doloremque
+          nesciunt perferendis natus, nobis deleniti.
+        </p>
+
+        <h4 class="sub_titles">Values</h4>
+        <p class="short_paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, rem
+          doloremque hic eius facere odio, earum et consequuntur inventore,
+          aliquam maxime? Est, non. Neque eius tempora eos ut fugiat iste.
+        </p>
+      </main>
+    </div>
+    <script></script>
+    {% endblock %}
+  </body>
+</html>
+
+<!-- About HCC Why HCCSS Faculty Office Hours Organizational Structure
+          Facts And Figures Department Of HCCSS. -->
