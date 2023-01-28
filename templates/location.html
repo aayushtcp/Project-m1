@@ -5,6 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <title>Document</title>
   </head>
   <body>
@@ -64,6 +70,9 @@
           background: #fff;
           grid-area: sidebar;
         }
+        .points{
+          font-size: 14px;
+        }
       }
       /*responsive grid for phone ends*/
       /*responsive grid for PC starts*/
@@ -111,6 +120,13 @@
         box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2);
         
       }
+      h6,h4{
+        font-weight: bold;
+      }
+      ul{
+        list-style-type: square;
+      }
+
     </style>
     <div class="gridd_container">
       <div class="sidebar">
@@ -124,63 +140,17 @@
         <div class="main_img_div">
           <img src="{% static 'college1.jpg' %}" alt="" class="main_img" />
         </div>
-
-        <p class="long_paragraph">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi
-          veritatis hic nesciunt eligendi suscipit molestiae porro! Quasi
-          quibusdam, assumenda cum tempora rem dolore. Laborum facilis saepe
-          laboriosam quod quidem fuga quo explicabo ut vel maiores eaque
-          corrupti optio, asperiores repudiandae tenetur quas, natus ratione
-          eveniet neque recusandae. Voluptate distinctio totam ut dolorem amet
-          consequuntur optio quo ex, laborum fugit, unde aliquid. Veniam aperiam
-          tempore molestiae, qui magni necessitatibus deleniti molestias ipsum
-          deserunt quae ipsa reiciendis tempora veritatis unde incidunt.
-          Perspiciatis laboriosam rem nobis sed minima dolor sapiente laudantium
-          quod eum ad amet, ab beatae numquam fuga earum temporibus unde ex
-          fugiat sint eveniet eos, distinctio sunt nesciunt? Nam at eveniet nemo
-          expedita sint voluptate doloremque illum consectetur deleniti, aperiam
-          voluptatibus nulla maiores delectus perspiciatis? Placeat excepturi
-          vero, voluptate numquam fugit necessitatibus molestiae quod
-          consectetur accusantium consequatur optio perferendis, culpa
-          repudiandae inventore dolorum enim eligendi tenetur saepe animi nisi?
-          Explicabo nisi minus placeat veritatis, porro iste. Accusamus minus
-          totam odit quas quasi rem labore assumenda omnis nulla numquam, harum
-          autem ipsum, perferendis necessitatibus voluptate consequatur sint
-          itaque consectetur facilis, molestias sequi? Ipsa sunt expedita
-          molestiae porro nisi ratione, ipsum aliquam harum amet possimus
-          quisquam dolore, rerum id voluptatum ab magni.
-        </p>
-
-        <h4 class="sub_titles">Mission</h4>
-        <p class="short_paragraph">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At veniam
-          excepturi quaerat repudiandae nulla nisi deserunt aliquam magni id
-          cumque, commodi facere illo dolorem. Voluptate reprehenderit numquam
-          natus! Nobis, aliquam.
-        </p>
-
-        <h4 class="sub_titles">Vision</h4>
-        <p class="short_paragraph">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-          voluptas alias id ea. Et consequatur saepe placeat ut, omnis,
-          laboriosam blanditiis, eum ipsam tempora impedit officia eius odit
-          sint dolores.
-        </p>
-
-        <h4 class="sub_titles">Philosophy</h4>
-        <p class="short_paragraph">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum
-          ipsa adipisci quia repellendus provident dicta autem, assumenda cum
-          perspiciatis, ratione suscipit porro officiis eveniet doloremque
-          nesciunt perferendis natus, nobis deleniti.
-        </p>
-
-        <h4 class="sub_titles">Values</h4>
-        <p class="short_paragraph">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, rem
-          doloremque hic eius facere odio, earum et consequuntur inventore,
-          aliquam maxime? Est, non. Neque eius tempora eos ut fugiat iste.
-        </p>
+        <div class="container">
+          <h4>Our college lies in heart of green city Hetauda.</h4>
+          <h6>Hetauda 05 Piple</h6>
+          <ul>
+            <li class="points">From buddha chowk head towards the East side. </li>
+            <li class="points">After around 4 kilometers you will be on the town named Piple .</li>
+            <li class="points">Then 100 meters more forward you can see the Baniya Nirmand Sews Pvt.Ltd (BNS).</li>
+            <li class="points">After that you will able to see big red and white building just opposite to BNS.</li>
+          </ul>
+          <div style="overflow:hidden;resize:none;max-width:100%;width:100%;height:450px;"><div id="g-mapdisplay" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Hetauda+City+College,+Hetauda,+Nepal&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="googlemaps-made" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="get-map-data">premium bootstrap themes</a><style>#g-mapdisplay img.text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style></div>
+        </div>
       </main>
     </div>
     <script></script>

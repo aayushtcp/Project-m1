@@ -1,12 +1,197 @@
+{% extends 'base.html' %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hetauda City College</title>
-</head>
-<body>
-  <h1>Extra services</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HCC</title>
+  </head>
+  <body>
+    {% block content %}
+    <style>
+      .gridd_container {
+        font-size: 1.3rem;
+        grid-gap: 0.2rem;
+        color: #fff;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr .4fr;
+        grid-template-areas:
+          "sidebar main main"
+          "content1 content1 content2";
+      }
+
+      .mainn {
+        background: black;
+        grid-area: main;
+      }
+      .sidebar {
+        text-align: left;
+        background: #fff;
+        grid-area: sidebar;
+      }
+      .content1 {
+        font-family: "poppins", sans-serif;
+        color: black;
+        background: #fff;
+        grid-area: content1;
+      }
+      .content2 {
+        font-family: "poppins", sans-serif;
+        color: black;
+        background: #fff;
+        grid-area: content2;
+      }
+      @media only screen and (min-width: 768px) {
+        .mainn {
+            margin-right: 12rem;
+            color: black;
+          background: #fff;
+          grid-area: main;
+        }
+        .sidebar {
+          background: #fff;
+          margin-left: 12rem;
+          margin-top: 25px;
+          grid-area: sidebar;
+        }
+        .content1{
+          margin: 0px 35px;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        .gridd_container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 0.3fr 2fr;
+          grid-template-areas:
+            "sidebar"
+            "main"
+            "content1"
+            "content2";
+        }
+        .mainn {
+            padding: 20px;
+            color: black;
+          background: #fff;
+          grid-area: main;
+        }
+        .sidebar {
+            margin: 0px 8px 0px;
+          background: #fff;
+          grid-area: sidebar;
+        }
+        .content1 {
+            padding: 8px;
+          background: #fff;
+          grid-area: content1;
+        }
+        .content2 {
+            padding: 8px;
+          background: #fff;
+          grid-area: content2;
+        }
+      }
+      .sidebar_a {
+        font-size: 16px;
+      }
+      /*Image management CSS starts*/
+      .main_img_div {
+        width: 100%;
+      }
+      .main_img {
+        object-fit: cover;
+        height: 400px;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      /*Image management CSS ends*/
+
+      /*After photo CSS starts*/
+      .long_paragraph{
+        text-align: justify;
+        font-size: 17px;
+      }
+      .sub_titles {
+        font-weight: 700;
+        cursor: pointer;
+        color: #2f358f;
+      }
+      .sub_titles:hover {
+        color: red;
+      }
+      /*After photo CSS ends*/
+      /*Points edit starts*/
+      .sidebar dl{
+        list-style-type: square;
+        color: black;
+        font-size: 17px;
+      }
+      /*Points edit end*/
+    </style>
+    <div class="gridd_container">
+      <!-- <nav class="navv">Navbar</nav> -->
+      <div class="sidebar">
+        <a href="/gallary" class="sidebar_a"
+          >About HCC Why HCCSS Faculty Office Hours Organizational Structure
+          Facts And Figures Department Of HCCSS.</a
+        >
+        <dl>
+          <li>Bus Service</li>
+          <li>Regular Health Checkup</li>
+          <li>Medical Service </li>
+          <li>Sports</li>
+          <li>Students Monitoring</li>
+          <li>Hostel and Food</li>
+          <li>Healthy Canteen</li>
+          <li>NO Mobile Phone</li>
+          <li>Regular Meeting with Parents</li>
+          <li>Value for Money</li>
+          <li>Best Kids Environment </li>
+          <li>Kids Playground</li>
+          <li>Basketball Court</li>
+          <li>Big Space Parking</li>
+          <li>Study with help of Projector</li>
+          <li>Neat and Clean Classrooms</li>
+          <li>Technological Tour</li>
+          <li>Free bag for kids</li>
+          <li>Singing and Dancing Week</li>
+          <li>Other extra Activities</li>
+        </dl>
+      </div>
+      <main class="mainn">
+        <h1>Our services</h1>
+        <div class="main_img_div">
+          <img src="{% static 'college1.jpg' %}" alt="" class="main_img" />
+        </div>
+
+        <p class="long_paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi
+          veritatis hic nesciunt eligendi suscipit molestiae porro! Quasi
+          quibusdam, assumenda cum tempora rem dolore. Laborum facilis saepe
+          laboriosam quod quidem fuga quo explicabo ut vel maiores eaque
+          corrupti optio, asperiores repudiandae tenetur quas, natus ratione
+          eveniet neque recusandae. Voluptate distinctio totam ut dolorem amet
+          consequuntur optio quo ex, laborum fugit, unde aliquid. Veniam aperiam
+        </p>
+        <h2 class="s_h2">Extra Cirriculam Activities</h2>
+        <div class="main_img_div">
+          <img src="{% static 'heroine.jpg' %}" alt="" class="main_img" />
+        </div>
+      </main>
+      <div class="content1">
+        <h3>Sports</h3>
+        <div class="main_img_div">
+          <img src="{% static 'football.jpg' %}" alt="" class="main_img" />
+        </div>
+      </div>
+      <div class="content2">
+        <h3>Eye Checkup</h3>
+        <div class="main_img_div">
+          <img src="{% static 'eyecheck.jpg' %}" alt="" class="main_img" />
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
 </html>

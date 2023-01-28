@@ -129,3 +129,11 @@ os.path.join(BASE_DIR, "static")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#mail system settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'therespawner69@gmail.com'
+EMAIL_HOST_PASSWORD = 'wzokrdhjtpvmgfuc'
+EMAIL_USE_TLS = True 
