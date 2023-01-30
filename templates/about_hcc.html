@@ -5,10 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>Document</title>
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -112,19 +114,19 @@
       }
     </style>
     <div class="gridd_container">
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/whyhcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
         >
       </div>
-      <main class="mainn">
+      <main class="mainn" data-aos="fade-right">
         <h1>About HCC</h1>
         <div class="main_img_div">
           <img src="{% static 'college1.jpg' %}" alt="" class="main_img" />
         </div>
 
-        <p class="long_paragraph">
+        <p class="long_paragraph" data-aos="fade-up">
           Hetauda City College is a prestigious Information Technology college
           in Nepal. The college is in the heart of Hetauda, which is easily
           accessible from both the Terai and the hilly regions of Nepal.
@@ -149,32 +151,39 @@
         </p>
 
         <h4 class="sub_titles">Mission</h4>
-        <p class="short_paragraph">
+        <p class="short_paragraph" data-aos="fade-right">
           The purpose of HCC is to offer a platform for experience design
           thinking so that problems can be turned into opportunities.
         </p>
 
         <h4 class="sub_titles">Vision</h4>
-        <p class="short_paragraph">
+        <p class="short_paragraph" data-aos="fade-right">
           HCC aspires to be Nepal's top institution of higher learning for
           immersive, innovative, and transformative education in the
           twenty-first century.
         </p>
 
         <h4 class="sub_titles">Philosophy</h4>
-        <p class="short_paragraph">
+        <p class="short_paragraph" data-aos="fade-right">
           Transform the Challenges into Opportunities is the Hetauda City
           College's (HCC) guiding philosophy.
         </p>
 
         <h4 class="sub_titles">Values</h4>
-        <p class="short_paragraph">
+        <p class="short_paragraph" data-aos="fade-right">
           Positive discipline, integrity, respect for variety, ongoing
           improvement, and sustainability are among HCC's core values.
         </p>
       </main>
     </div>
-    <script></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
+    </script>
     {% endblock %}
   </body>
 </html>

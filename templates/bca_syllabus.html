@@ -9,6 +9,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       .gridd_container {
         font-size: 1.3rem;
@@ -126,7 +127,7 @@
     </style>
     <div class="gridd_container">
       <!-- <nav class="navv">Navbar</nav> -->
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -134,18 +135,18 @@
       </div>
       <main class="mainn">
         <h1>About BCA and Syllabus</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img src="{% static 'bcapic1.jpg' %}" alt="" class="main_img" />
         </div>
 
-        <p class="long_paragraph">
+        <p class="long_paragraph" data-aos="fade-up">
           BCA (Bachelor of Computer Application) is a popular undergraduate program in Nepal that focuses on the study of computer science and applications. The program typically takes four years to complete and covers a wide range of topics, including programming, data structures, algorithms, database management, computer networks, and web development.
           <br>
           The curriculum is designed to provide students with a solid foundation in computer science and to prepare them for a variety of careers in the field, such as software development, web design, database management, and IT consulting. Many BCA graduates in Nepal go on to work in software development companies, IT consulting firms, or government organizations.
         </p>
         <h2 class="s_h2">BCA Syllabus</h2>
       </main>
-      <div class="content1">
+      <div class="content1" data-aos="fade-up">
         <h4 class="content1_h4">1st Semester</h4>
         <dl class="content1_dl">
             <li>Mathematics-I</li>
@@ -184,7 +185,7 @@
             <li>Project I</li>
         </dl>
       </div>
-      <div class="content2">
+      <div class="content2" data-aos="fade-up">
         <h4 class="content1_h4">5th Semester</h4>
         <dl class="content1_dl">
             <li>MIS & e-Business</li>
@@ -222,6 +223,14 @@
         </dl>
       </div>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
+    </script>
     {% endblock %}
   </body>
 </html>

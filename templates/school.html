@@ -14,6 +14,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -281,7 +282,7 @@
     }
     </style>
     <div class="gridd_container">
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -292,7 +293,7 @@
         <p class="text-danger">{{message}}</p>
         {% endfor %}
         <h1>School</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img
             src="{% static 'school_students.jpg' %}"
             alt=""
@@ -300,7 +301,7 @@
           />
         </div>
 
-        <p class="long_paragraph">
+        <p class="long_paragraph" data-aos="fade-up">
           School is child's second Parents. We teach our students in home environments and our school teachers are also highly trained to take good care of students and teach them how to be a good person.
           <br>
           We also have bus services, picnics, tours and strict rules for school students as well. 
@@ -311,7 +312,7 @@
             <div class="form_container">
                 <header>Admission Form</header>
         
-                <form action="/school/" method="post">
+                <form action="/school/" method="post" data-aos="fade-up">
                   {% csrf_token %}
                     <div class="form first">
                         <div class="details personal">
@@ -385,6 +386,14 @@
       })
 
       backBtn.addEventListener("click", () => form.classList.remove('secActive'));
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
     </script>
  {% endblock %}
   </body>

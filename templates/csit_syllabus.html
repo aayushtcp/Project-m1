@@ -9,6 +9,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       .gridd_container {
         font-size: 1.3rem;
@@ -126,7 +127,7 @@
     </style>
     <div class="gridd_container">
       <!-- <nav class="navv">Navbar</nav> -->
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -134,16 +135,16 @@
       </div>
       <main class="mainn">
         <h1>About Bsc.CSIT and Syllabus</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img src="{% static 'college3.jpg' %}" alt="" class="main_img" />
         </div>
 
-        <p class="long_paragraph">
+        <p class="long_paragraph" data-aos="fade-up">
           BSc.CSIT (Bachelor of Science in Computer Science and Information Technology) is a popular undergraduate program in Nepal that focuses on the study of computer science and information technology. The program typically takes four years to complete and covers a wide range of topics, including programming, data structures, algorithms, computer networks, database management, software engineering, web development and much more.
         </p>
         <h2 class="s_h2">Bsc.CSIT Syllabus</h2>
       </main>
-      <div class="content1">
+      <div class="content1" data-aos="fade-up">
         <h4 class="content1_h4">1st Semester</h4>
         <dl class="content1_dl">
             <li>C Programming</li>
@@ -181,7 +182,7 @@
             <li>Elective III</li>
         </dl>
       </div>
-      <div class="content2">
+      <div class="content2" data-aos="fade-up">
         <h4 class="content1_h4">2nd Semester</h4>
         <dl class="content1_dl">
             <li>Discrete Structure</li>
@@ -220,6 +221,14 @@
         </dl>
       </div>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
+    </script>
     {% endblock %}
   </body>
 </html>

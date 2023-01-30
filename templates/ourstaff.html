@@ -11,6 +11,7 @@
 
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
@@ -115,7 +116,7 @@
     <div class="container">
       <h1 class="heading">Meet<span> Our Team </span></h1>
 
-      <div class="profiles">
+      <div class="profiles" data-aos="fade-up">
         <div class="profile">
           <img
             src="{% static 'lorem_co-ordinator.jpg' %}"
@@ -148,7 +149,7 @@
         </div>
       </div>
       <!-- PROFILES ROW 2 FOR PC STARTS -->
-      <div class="profiles">
+      <div class="profiles" data-aos="fade-up">
         <div class="profile">
           <img
             src="{% static 'priyamam.jpg' %}"
@@ -181,7 +182,7 @@
       </div>
       <!-- PROFILES ROW 2 FOR PC ENDS -->
       <!-- PROFILES ROW 3 FOR PC STARTS -->
-      <div class="profiles">
+      <div class="profiles" data-aos="fade-up">
         <div class="profile">
           <img
             src="{% static 'umeshsir.jpg' %}"
@@ -215,7 +216,7 @@
       </div>
       <!-- PROFILES ROW 3 FOR PC ENDS -->
       <!-- PROFILES ROW 4 FOR PC STARTS -->
-      <div class="profiles">
+      <div class="profiles" data-aos="fade-up">
         <div class="profile">
           <img
             src="{% static 'anjilsir.jpg' %}"
@@ -249,6 +250,14 @@
       </div>
       <!-- PROFILES ROW 4 FOR PC ENDS -->
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 900
+        }
+      );
+    </script>
     {% endblock %}
   </body>
 </html>

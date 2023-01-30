@@ -14,6 +14,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -283,9 +284,12 @@
       margin-left: 10px;
       list-style-type: square;
     }
+    .newed{
+      color: green;
+    }
     </style>
     <div class="gridd_container">
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -293,10 +297,10 @@
       </div>
       <main class="mainn">
         {% for message in messages %}
-        <p class="text-danger">{{message}}</p>
+        <p class="newed">{{message}}</p>
         {% endfor %}
         <h1>+2</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img
             src="{% static 'plus2_hm_cook1.jpg' %}"
             alt=""
@@ -304,7 +308,7 @@
           />
         </div>
 
-        <p class="long_paragraph">
+        <p class="long_paragraph" data-aos="fade-up">
           Higher Education is must in Nepal now. You cannot get a good knowledge without +2 level education. We as a college deliever good education for +2 students. You are always welcome to join us.
         </p>
         <h2>Our +2 Fields</h2>
@@ -320,7 +324,7 @@
             <div class="form_container">
                 <header>Admission Form</header>
         
-                <form action="/plus2/" method="post" onsubmit="return func1()">
+                <form action="/plus2/" method="post" data-aos="fade-up">
                   {% csrf_token %}
                     <div class="form first">
                         <div class="details personal">
@@ -377,7 +381,13 @@
         </div>
       </main>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
     </script>
     {% endblock %}
   </body>

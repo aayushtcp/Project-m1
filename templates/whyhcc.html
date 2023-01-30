@@ -9,6 +9,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -116,21 +117,21 @@
       }
     </style>
     <div class="gridd_container">
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
         >
       </div>
-      <main class="mainn">
+      <main class="mainn" >
         <h1>Why HCC</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img src="{% static 'college1.jpg' %}" alt="" class="main_img" />
         </div>
 
         <ol>
-          <li class="subheadings">Human Resource</li>
-          <p class="long_paragraph">
+          <li class="subheadings" data-aos="fade-up">Human Resource</li>
+          <p class="long_paragraph" data-aos="fade-up">
             HCC is a top employer in the education, technical, management, and
             support fields. Many of our graduates plan to work in the education
             sector, specifically at HCC.
@@ -139,24 +140,24 @@
             develop teaching and non-teaching human resources, is always on the
             lookout for new leaders and talents to join HCC.
           </p>
-          <li class="subheadings">Reasonable and competitive prices</li>
-          <p class="long_paragraph">
+          <li class="subheadings" data-aos="fade-up">Reasonable and competitive prices</li>
+          <p class="long_paragraph" data-aos="fade-up">
             Our service fees are significantly lower than those charged by the
             majority of Nepalese education firms. This is due to the fact that
             we are an independent education firm that sets our own rates; as a
             result, our rates are fair and competitive without sacrificing
             quality in any way.
           </p>
-          <li class="subheadings">Standing</li>
-          <p class="long_paragraph">
+          <li class="subheadings" data-aos="fade-up">Standing</li>
+          <p class="long_paragraph" data-aos="fade-up">
             Since its inception, HCC has earned a stellar reputation for
             providing first-rate services and collaborating with prestigious
             universities and colleges all over the world. As a result, pursuing
             an education at HCC will increase your chances of landing a better
             job in the future.
           </p>
-          <li class="subheadings">Partnership and Collaboration</li>
-          <p class="long_paragraph">
+          <li class="subheadings" data-aos="fade-up">Partnership and Collaboration</li>
+          <p class="long_paragraph" data-aos="fade-up">
             Today, HCC has formed alliances with leading organizations in the
             fields of information technology as well as innovation, business,
             entrepreneurship, research, and education. Every year, several
@@ -165,8 +166,8 @@
             mutual benefits for HCC and partner organizations in the areas of
             business development, innovation, and learning.
           </p>
-          <li class="subheadings">Research and Development</li>
-          <p class="long_paragraph">
+          <li class="subheadings" data-aos="fade-up">Research and Development</li>
+          <p class="long_paragraph" data-aos="fade-up">
             HCC relies heavily on research and development. We have been working
             on several initiatives, collaborating on various research projects
             with various leading partner organizations.
@@ -174,7 +175,14 @@
         </ol>
       </main>
     </div>
-    <script></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
+    </script>
     {% endblock %}
   </body>
 </html>

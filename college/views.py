@@ -175,7 +175,6 @@ def csit(request):
         my_list = ['@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '\\','_','~','!']
         g= any(char.isdigit() for char in name)
         h= any(char in my_list for char in address)
-        print(h)
         if name!="" and len(name)>4 and regex.search(name) == None and name!=r"\\" and len(name)<20 and g!=True and h!=True:
             # print("Pass")regex.search(name) == None and name!=r"\\"
             admission = Admission(name=name,

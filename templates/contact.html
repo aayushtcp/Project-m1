@@ -9,6 +9,7 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -18,6 +19,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
       .main_contactus{
@@ -213,19 +215,19 @@
           <p>If you want to ask a questions or if you need general enquiry from us then you can get in touch with us.</p>
         <form action="/contact/" method="post">
           {% csrf_token %}
-          <div class="input-box">
-            <input type="text" name="name" placeholder="Enter your name">
+          <div class="input-box" data-aos="fade-up">
+            <input type="text" name="name" placeholder="Enter your name" >
           </div>
-          <div class="input-box">
-            <input type="email" name="email" placeholder="Enter your email">
+          <div class="input-box" data-aos="fade-up">
+            <input type="email" name="email" placeholder="Enter your email" >
           </div>
-          <div class="input-box">
+          <div class="input-box" data-aos="fade-up">
             <input type="phone" name="phone" placeholder="Enter your phone number">
           </div>
-          <div class="input-box message-box">
-            <textarea name="content" placeholder="Please enter your message or Enquiry"></textarea>
+          <div class="input-box message-box" data-aos="fade-up">
+            <textarea name="content" placeholder="Please enter your message or Enquiry" ></textarea>
           </div>
-          <div class="button">
+          <div class="button" >
             <input type="submit" value="Submit" >
           </div>
         </form>
@@ -235,6 +237,14 @@
   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6846ee7114.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
+    </script>
 {% endblock %}
   </body>
 </html>

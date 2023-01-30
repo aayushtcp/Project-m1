@@ -14,6 +14,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -281,7 +282,7 @@
     }
     </style>
     <div class="gridd_container">
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -292,7 +293,7 @@
         <p class="text-danger">{{message}}</p>
         {% endfor %}
         <h1>Bsc.CSIT</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img
             src="{% static 'college3.jpg' %}"
             alt=""
@@ -300,7 +301,7 @@
           />
         </div>
 
-        <p class="long_paragraph">
+        <p class="long_paragraph" data-aos="fade-up">
           BSc.CSIT (Bachelor of Science in Computer Science and Information Technology) is a popular undergraduate program in Nepal that focuses on the study of computer science and information technology. The program typically takes four years to complete and covers a wide range of topics, including programming, data structures, algorithms, computer networks, database management, software engineering, web development and much more.
           <br>
           The curriculum of BSc.CSIT is designed to provide students with a comprehensive understanding of computer science and information technology and to prepare them for a wide range of careers in the field, including software development, web design, database management, IT consulting, network administration and much more. Graduates of BSc.CSIT can go on to work in software development companies, IT consulting firms, government organizations, and other businesses that rely on computer technology.
@@ -311,7 +312,7 @@
             <div class="form_container">
                 <header>Admission Form</header>
         
-                <form action="/csit/" method="post">
+                <form action="/csit/" method="post" data-aos="fade-up">
                   {% csrf_token %}
                     <div class="form first">
                         <div class="details personal">
@@ -367,24 +368,13 @@
         </div>
       </main>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-               const form = document.querySelector("form"),
-              nextBtn = form.querySelector(".nextBtn"),
-              backBtn = form.querySelector(".backBtn"),
-              allInput = form.querySelectorAll(".first input");
-
-
-      nextBtn.addEventListener("click", ()=> {
-          allInput.forEach(input => {
-              if(input.value != ""){
-                  form.classList.add('secActive');
-              }else{
-                  form.classList.remove('secActive');
-              }
-          })
-      })
-
-      backBtn.addEventListener("click", () => form.classList.remove('secActive'));
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
     </script>
   {% endblock %}
   </body>

@@ -15,6 +15,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -129,7 +130,7 @@
 
     </style>
     <div class="gridd_container">
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -137,10 +138,10 @@
       </div>
       <main class="mainn">
         <h1>Location</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img src="{% static 'college1.jpg' %}" alt="" class="main_img" />
         </div>
-        <div class="container">
+        <div class="container" data-aos="fade-up">
           <h4>Our college lies in heart of green city Hetauda.</h4>
           <h6>Hetauda 05 Piple</h6>
           <ul>
@@ -153,7 +154,14 @@
         </div>
       </main>
     </div>
-    <script></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 700
+        }
+      );
+    </script>
     {% endblock %}
   </body>
 </html>

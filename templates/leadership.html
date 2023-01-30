@@ -9,6 +9,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -112,7 +113,7 @@
       }
     </style>
     <div class="gridd_container">
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -120,11 +121,11 @@
       </div>
       <main class="mainn">
         <h1>Leadership</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img src="{% static 'principal.jpg' %}" alt="" class="main_img" />
         </div>
 
-        <p class="long_paragraph">
+        <p class="long_paragraph" data-aos="fade-up">
           Leadership in an Information Technology college is crucial to ensuring
           the success of both students and faculty. Effective leaders in HCC
           possess a strong understanding of the industry and the ability to
@@ -154,7 +155,14 @@
         </p>
       </main>
     </div>
-    <script></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
+    </script>
     {% endblock %}
   </body>
 </html>

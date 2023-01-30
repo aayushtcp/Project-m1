@@ -15,11 +15,12 @@
     rel="stylesheet"
   />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
     <title>HCC</title>
   </head>
   <body>
     {% block content %}
-    <!-- <button type="button" class="btn btn-info">Info</button> -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       .cards {
         padding: 10px;
@@ -366,7 +367,7 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <center class="center_text">
+    <center class="center_text" data-aos="fade-up">
       <h2 class="card_title_h2">
         LIVE THE
         <span class="card_title_h2_span"> ACEPERIENCE </span>
@@ -376,7 +377,7 @@
         Technology education in the country.</span>
       </p>
     </center>
-    <div class="wrapper">
+    <div class="wrapper" data-aos="fade-up">
       <div class="number_container">
         <!-- <i class="fas fa-utensils"></i> -->
         <span class="text_span">9+</span>
@@ -410,7 +411,7 @@
       </div>
   </div> -->
     <!-- CARD START -->
-    <div class="cards">
+    <div class="cards" >
       <div class="card card2">
         <div class="container_card">
           <img
@@ -459,7 +460,7 @@
     </div>
     <!-- Testimonial starts -->
     <div class="tes_wrapper">
-      <div class="box">
+      <div class="box" data-aos="fade-left">
         <i class="fas fa-quote-left quote"></i>
         <p>Perfect rules and real world trainings for studends helps them to innovate or discover new things. So, we make students to deal with real world problems.</p>
         <div class="content">
@@ -479,7 +480,7 @@
           </div>
         </div>
       </div>
-      <div class="box">
+      <div class="box" data-aos="fade-right">
         <i class="fas fa-quote-left quote"></i>
         <p>Although this is modern era, there are many problems in our society. Students and we as a team try to solve those big problems in our community or society.</p>
         <div class="content">
@@ -501,6 +502,14 @@
       </div>
     </div>
     <!-- Testimonial ends -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1800
+        }
+      );
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6846ee7114.js" crossorigin="anonymous"></script>
     <script>

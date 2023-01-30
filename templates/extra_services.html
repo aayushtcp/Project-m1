@@ -9,6 +9,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       .gridd_container {
         font-size: 1.3rem;
@@ -131,7 +132,7 @@
     </style>
     <div class="gridd_container">
       <!-- <nav class="navv">Navbar</nav> -->
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/gallary" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -187,23 +188,31 @@
           knowledge and skills in real-world settings.
         </p>
         <h2 class="s_h2">Extra Cirriculam Activities</h2>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-up">
           <img src="{% static 'heroine.jpg' %}" alt="" class="main_img" />
         </div>
       </main>
       <div class="content1">
         <h3>Sports</h3>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img src="{% static 'football.jpg' %}" alt="" class="main_img" />
         </div>
       </div>
       <div class="content2">
         <h3>Eye Checkup</h3>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-left">
           <img src="{% static 'eyecheck.jpg' %}" alt="" class="main_img" />
         </div>
       </div>
     </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 900
+        }
+      );
+    </script>
     {% endblock %}
   </body>
 </html>

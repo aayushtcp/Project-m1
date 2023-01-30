@@ -14,6 +14,7 @@
   </head>
   <body>
     {% block content %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -281,7 +282,7 @@
     }
     </style>
     <div class="gridd_container">
-      <div class="sidebar">
+      <div class="sidebar" data-aos="fade-up">
         <a href="/about_hcc" class="sidebar_a"
           >About HCC Why HCCSS Faculty Office Hours Organizational Structure
           Facts And Figures Department Of HCCSS.</a
@@ -292,7 +293,7 @@
         <p class="text-danger">{{message}}</p>
         {% endfor %}
         <h1>BCA</h1>
-        <div class="main_img_div">
+        <div class="main_img_div" data-aos="fade-right">
           <img
             src="{% static 'bcapic1.jpg' %}"
             alt=""
@@ -300,7 +301,7 @@
           />
         </div>
 
-        <p class="long_paragraph">
+        <p class="long_paragraph"  data-aos="fade-up">
           BCA (Bachelor of Computer Application) is a popular undergraduate program in Nepal that focuses on the study of computer science and applications. The program typically takes four years to complete and covers a wide range of topics, including programming, data structures, algorithms, database management, computer networks, and web development.
           <br>
           The curriculum is designed to provide students with a solid foundation in computer science and to prepare them for a variety of careers in the field, such as software development, web design, database management, and IT consulting. Many BCA graduates in Nepal go on to work in software development companies, IT consulting firms, or government organizations.
@@ -313,7 +314,7 @@
             <div class="form_container">
                 <header>Admission Form</header>
         
-                <form action="/bca/" method="post">
+                <form action="/bca/" method="post" data-aos="fade-up">
                   {% csrf_token %}
                     <div class="form first">
                         <div class="details personal">
@@ -387,6 +388,14 @@
       })
 
       backBtn.addEventListener("click", () => form.classList.remove('secActive'));
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init(
+        {
+        duration: 1000
+        }
+      );
     </script>
     {% endblock %}
   </body>
