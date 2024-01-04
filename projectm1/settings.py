@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$7ii$%6+ey(dka0pqme#ul-ozitwfk5pt5ka4$(-*8gd2=dcq(
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.254.90',
+    '192.168.254.150',
     '127.0.0.1',
     '192.168.56.1'
 ]
@@ -123,14 +123,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # Developer added
 STATICFILES_DIRS =[
-os.path.join(BASE_DIR, "static")
+    BASE_DIR/'static'
 ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 #mail system settings
 EMAIL_HOST = 'smtp.gmail.com'

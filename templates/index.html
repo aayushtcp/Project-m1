@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %} 
+{% load i18n %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -329,6 +331,7 @@
     }
       /*carousel css ends*/
     </style>
+  <h3>{% trans "My name is aayush" %}</h3>
     <div id="hero-carousel" class="carousel slide ownslide"  data-bs-ride="carousel">
       <div class="carousel-indicators">
           <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -373,8 +376,7 @@
         <span class="card_title_h2_span"> ACEPERIENCE </span>
       </h2>
       <p class="index_lead">
-        Established in 2070 HCC has evolved into one of the best providers of
-        Technology education in the country.</span>
+        {% trans "Established in 2070 HCC has evolved into one of the best providers of Technology education in the country." %}
       </p>
     </center>
     <div class="wrapper" data-aos="fade-up">
